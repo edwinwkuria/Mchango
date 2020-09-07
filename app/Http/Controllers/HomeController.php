@@ -26,8 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $paybill = config('mpesaconfigs.ShortCode');
         $userid = Auth::user()->id;
         $fundraisers = DB::table('fundraisers')->where('userID', '=', $userid)->get();
-        return view('home', compact('fundraisers'));
+        return view('home', compact('fundraisers','paybill'));
     }
 }

@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/test', function () {
+    return response('Test API', 200)
+                  ->header('Content-Type', 'application/json');
+});
+Route::post('/B2Cconfirmation','MpesaC2bController@B2Cconfirmation');
+Route::post('/B2Cvalidation','MpesaC2bController@B2Cvalidation');

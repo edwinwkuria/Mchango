@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('/fundraiser','FundraiserController');
+Route::post('/B2Cconfirmation','MpesaC2bController@B2Cconfirmation');
+Route::post('/B2Cvalidation','MpesaC2bController@B2Cvalidation');
+Route::post('/C2BWithdraw','MpesaB2cController@Withdraw');
+Route::get('/registerapi','MpesaC2bController@registerUrl');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

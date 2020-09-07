@@ -13,8 +13,8 @@
                     <h5 class="card-title">{{ $fundraiser->name }}</h5>
                     <p class="card-text">Total Amount Raised: Ksh <b>{{ $fundraiser->amountRaised }}</b>, Target Contribution <b>{{ $fundraiser->target }}</b></p>
                     <p class="card-text">Number of contributors: Ksh <b>{{ $fundraiser->numberOfContributors }}</b></p>
-                    <p class="card-text">Paybill: <b>200</b> Account Number: <b>{{ $fundraiser->accountNumber}}</b></p>
-                    <a href="#" class="btn btn-primary">View details</a>
+                    <p class="card-text">Paybill: <b>{{ $paybill }}</b> Account Number: <b>{{ $fundraiser->accountNumber}}</b></p>
+                    <a href="/fundraiser/{{ $fundraiser->id}}" class="btn btn-primary">View details</a>
                     @if($fundraiser->isActive)
                     <a onclick="event.preventDefault();document.getElementById('Update-form').submit();"><button class="btn btn-danger">Close Fundraiser</button></a>
                         <form id="Update-form" action="/fundraiser/{{ $fundraiser->id }}" method="POST" style="display: none;"> 

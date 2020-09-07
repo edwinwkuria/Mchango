@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Fundraiser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FundraiserController extends Controller
 {
@@ -63,7 +64,8 @@ class FundraiserController extends Controller
      */
     public function show(Fundraiser $fundraiser)
     {
-        //
+        $transactions = DB::table('transactions')->where('accountNumber', '=', $fundraiser->accountNumber)->get();
+        return view('fundraiser.show',compact('transactions','fundraiser'));
     }
 
     /**
